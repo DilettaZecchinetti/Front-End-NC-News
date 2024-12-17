@@ -1,8 +1,6 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getArticles } from "../api";
 import { ArticleCard } from "./ArticleCard";
-
 
 function ArticleList() {
     const [articles, setArticles] = useState([]);
@@ -17,10 +15,14 @@ function ArticleList() {
                 setIsLoading(false);
             })
             .catch((err) => {
-                console.log(err);
+                console.error(err);
                 setIsLoading(false);
             });
     }, []);
+
+    if (isLoading) {
+        return <p>Loading...</p>;
+    }
 
     return (
         <section className="article-container">
@@ -32,3 +34,4 @@ function ArticleList() {
 }
 
 export default ArticleList;
+

@@ -5,20 +5,20 @@ import './App.css'
 import Header from '../Components/Header'
 import ArticlesList from '../Components/ArticlesList';
 import DropdownBar from '../Components/DropdownBar';
+import Article from '../Components/Article'
 
 function App() {
-  const [articles, setArticles] = useState([])
-
   return (
-    <>
-      <div>
-        <Header />
-        <DropdownBar />
-        <Routes>
-          <Route path="/" element={< ArticlesList articles={articles} setArticles={setArticles} />} />
-        </Routes>
-      </div>
-    </>
+
+    <div>
+      <Header />
+      <DropdownBar />
+      <Routes>
+        <Route path="/" element={<ArticlesList />} />
+        <Route path="/articles/:article_id" element={<Article />} />
+      </Routes >
+    </div>
+
   )
 }
 

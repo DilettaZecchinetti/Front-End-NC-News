@@ -1,6 +1,6 @@
+import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import React from "react";
 import { Link } from "react-router-dom";
 
 export const ArticleCard = ({ article }) => {
@@ -11,6 +11,7 @@ export const ArticleCard = ({ article }) => {
                     <Card.Img
                         variant="top"
                         src={article.article_img_url}
+                        alt={`Image for ${article.title}`}
                         style={{
                             width: "100%",
                             height: "auto",
@@ -25,14 +26,11 @@ export const ArticleCard = ({ article }) => {
                             <strong>Author:</strong> {article.author}
                         </Card.Text>
                     </div>
-                    <Card.Text>
-                        Some quick example text to build on the card title and make up
-                        the bulk of the card's content.
-                    </Card.Text>
+
                     <Card.Text style={{ fontSize: "0.9em", color: "#bbb" }}>
                         Created on: {new Date(article.created_at).toLocaleDateString()}
                     </Card.Text>
-                    <Link to={`/articles/${article.article_id}/${article.title}`}>
+                    <Link to={`/articles/${article.article_id}/{article.title}`}>
                         <Button variant="dark">Read more</Button>
                     </Link>
                 </div>
