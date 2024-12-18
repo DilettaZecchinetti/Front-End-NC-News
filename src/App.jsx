@@ -2,10 +2,10 @@ import { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import Header from '../Components/Header'
-import ArticlesList from '../Components/ArticlesList';
-import DropdownBar from '../Components/DropdownBar';
-import Article from '../Components/Article'
+import Header from './Components/Header'
+import ArticlesList from './Components/ArticlesList';
+import DropdownBar from './Components/DropdownBar';
+import Article from './Components/Article'
 
 function App() {
   return (

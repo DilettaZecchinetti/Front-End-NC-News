@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getArticles } from "../api";
+import { getArticles } from "../../api";
 import { ArticleCard } from "./ArticleCard";
 
 function ArticleList() {
@@ -34,4 +34,5 @@ function ArticleList() {
 }
 
 export default ArticleList;
+
 
