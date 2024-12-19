@@ -31,11 +31,10 @@ export const ArticleCard = ({ article }) => {
                         Created on: {new Date(article.created_at).toLocaleDateString()}
                     </Card.Text>
                     <Link to={`/articles/${article.article_id}`}>
-                        <Button variant="dark">Read more</Button>
+                        <Button variant="dark">Read More</Button>
                     </Link>
                 </div>
             </Card.Body>
         </Card>
-
     );
 };

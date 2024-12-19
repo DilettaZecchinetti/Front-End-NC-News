@@ -13,4 +13,3 @@ export const Comment = ({ comment }) => {
         </Card>
     );
 };
-
