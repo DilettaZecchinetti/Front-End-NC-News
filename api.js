@@ -21,3 +21,11 @@ export const getCommentsById = (article_id) => {
     return data;
   });
 };
+
+export const updateVoteCount = (article_id, voteChange) => {
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes: voteChange })
+    .then(({ data }) => {
+      return data;
+    });
+};

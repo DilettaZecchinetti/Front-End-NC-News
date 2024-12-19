@@ -10,7 +10,6 @@ function ArticleList() {
         setIsLoading(true);
         getArticles()
             .then(({ articles }) => {
-                console.log(articles)
                 setArticles(articles);
                 setIsLoading(false);
             })

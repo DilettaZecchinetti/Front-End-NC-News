@@ -1,49 +1,47 @@
-import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { getArticleById } from "../../api";
-import { Comments } from "./Comments";
+import { Link } from "react-router-dom";
+import { CommentsList } from "./CommentsList";
 import { CommentsProvider } from "../Contexts/CommentsContext";
+import { Votes } from "./Votes";
 
 function Article() {
+  const [article, setArticle] = useState([]);
   const { article_id } = useParams();
-  const [currentArticle, setCurrentArticle] = useState({});
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    setIsLoading(true);
     getArticleById(article_id)
       .then(({ article }) => {
-        setCurrentArticle(article);
+        setArticle(article);
         setIsLoading(false);
       })
       .catch((err) => {
         console.error(err);
-        setError("Failed to load the article.");
         setIsLoading(false);
       });
-  }, []);
+  }, [article_id]);
 
   if (isLoading) return <p>Loading...</p>;
-  if (error) return <p>{error}</p>;
+  if (!article) return <p>Article not found.</p>;
+
 
   return (
     <div>
-      <h1>{currentArticle.title}</h1>
-      <img
-        src={currentArticle.article_img_url}
-        alt={`Image for ${currentArticle.title}`}
-        style={{ width: "50%", height: "auto" }}
-      />
-      <h2>Created on: {new Date(currentArticle.created_at).toLocaleDateString()}</h2>
-      <p>{currentArticle.body}</p>
-      <CommentsProvider>
-        <Comments article_id={article_id} />
-      </CommentsProvider>
+      <h1>{article.title}</h1>
+      <p>Author: {article.author}</p>
+      <img src={article.article_img_url} alt={article.title} />
+      <p>{article.body}</p>
+
+      <Votes article_id={article_id} initialVotes={article.votes} setArticle={setArticle} />
       <Link to="/">
-        <button>Back to Articles</button>
+        <button className="">Back to Articles</button>
       </Link>
-    </div>
+      <CommentsProvider>
+        <CommentsList article_id={article.article_id} />
+      </CommentsProvider>
+    </div >
   );
 }
 

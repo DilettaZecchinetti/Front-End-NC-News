@@ -1,10 +1,10 @@
 import { useContext, useState, useEffect } from "react";
 import { CommentsContext } from "../Contexts/CommentsContext";
-import { Comment } from "./Comment"
+import { Comment } from "./Comment";
 import { getCommentsById } from "../../api";
+import { useParams } from "react-router";
 
 export const CommentsList = ({ article_id }) => {
-    console.log();
     const { comments, setComments } = useContext(CommentsContext);
     const [isLoading, setIsLoading] = useState(false);
 
