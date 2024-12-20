@@ -3,6 +3,7 @@ import { CommentsContext } from "../Contexts/CommentsContext";
 import { Comment } from "./Comment";
 import { getCommentsById } from "../../api";
 import { useParams } from "react-router";
+import { AddComment } from "./AddComment";
 
 export const CommentsList = ({ article_id }) => {
     const { comments, setComments } = useContext(CommentsContext);
@@ -19,11 +20,15 @@ export const CommentsList = ({ article_id }) => {
             .catch((err) => {
                 console.log(err);
             })
-    }, [])
+    }, [article_id])
+
+    const addCommentToList = (newComment) => {
+        setComments((currentComments) => [newComment, ...currentComments]);
+    };
 
     return (
         <div>
-            <h4>Comments:</h4>
+            <AddComment article_id={article_id} addCommentToList={addCommentToList} />
             {comments.map((comment) => {
                 return <Comment key={comment.comment_id} comment={comment} />
             })}

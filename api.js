@@ -29,3 +29,11 @@ export const updateVoteCount = (article_id, voteChange) => {
       return data;
     });
 };
+
+export const addComment = (article_id, comment) => {
+  return api
+    .post(`/articles/${article_id}/comments`, comment)
+    .then(({ data }) => {
+      return data;
+    });
+};
