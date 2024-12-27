@@ -11,12 +11,11 @@ function Header() {
                     <Navbar.Brand href="/">NC NEWS</Navbar.Brand>
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
-                        <Nav.Link as={Link}>Topics</Nav.Link>
+                        <Nav.Link as={Link} to="/topics">Topics</Nav.Link>
                         <Nav.Link as={Link} >Users</Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
-
         </div>
     )
 }
