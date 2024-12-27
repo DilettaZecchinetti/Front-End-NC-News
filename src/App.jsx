@@ -4,8 +4,8 @@ import { Routes, Route } from 'react-router-dom'
 import './App.css'
 import Header from './Components/Header'
 import ArticlesList from './Components/ArticlesList';
-import DropdownBar from './Components/DropdownBar';
 import { CommentsContext } from "./Contexts/CommentsContext";
+import '../src/css/App.css'
 
 import Article from './Components/Article';
 
@@ -17,10 +17,11 @@ function App() {
     <div>
 
       <Header />
-      <DropdownBar />
+
       <CommentsContext.Provider value={{ comments, setComments }}>
         <Routes>
           <Route path="/" element={<ArticlesList />} />
+          <Route path="/home" element={<ArticlesList />} />
           <Route path="/articles/:article_id" element={<Article />} />
         </Routes>
       </CommentsContext.Provider>
