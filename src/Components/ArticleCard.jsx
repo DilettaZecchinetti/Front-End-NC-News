@@ -2,10 +2,11 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import "../css/ArticleCard.css"
 
 export const ArticleCard = ({ article }) => {
     return (
-        <Card bg="dark" text="white" style={{ width: "80%", margin: "0 auto" }}>
+        <Card bg="dark" text="white" style={{ width: "80%", margin: "0 auto" }} className="article-card">
             <Card.Body style={{ display: "flex", alignItems: "center" }}>
                 <div style={{ flex: "0 0 200px", marginRight: "20px" }}>
                     <Card.Img
@@ -21,10 +22,11 @@ export const ArticleCard = ({ article }) => {
                 </div>
                 <div style={{ flex: "1" }}>
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <Card.Title style={{ flex: "1" }}>{article.title}</Card.Title>
                         <Card.Text style={{ fontSize: "0.9em", color: "#bbb" }}>
                             <strong>Author:</strong> {article.author}
                         </Card.Text>
+                        <Card.Title style={{ flex: "1" }}>{article.title}</Card.Title>
+
                     </div>
 
                     <Card.Text style={{ fontSize: "0.9em", color: "#bbb" }}>

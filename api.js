@@ -4,10 +4,12 @@ const api = axios.create({
   baseURL: "https://dz-news-api-1.onrender.com/api",
 });
 
-export const getArticles = () => {
-  return api("/articles").then(({ data }) => {
-    return data;
-  });
+export const getArticles = (sortBy = "created_at", order = "desc") => {
+  return api
+    .get(`/articles`, { params: { sort_by: sortBy, order } })
+    .then(({ data }) => {
+      return data;
+    });
 };
 
 export const getArticleById = (article_id) => {
@@ -36,4 +38,16 @@ export const addComment = (article_id, comment) => {
     .then(({ data }) => {
       return data;
     });
+};
+
+export const deleteComment = (comment_id) => {
+  return api.delete(`/comments/${comment_id}`).then(({ data }) => {
+    return data;
+  });
+};
+
+export const getTopics = () => {
+  return api.get(`/topics`).then(({ data }) => {
+    return data;
+  });
 };

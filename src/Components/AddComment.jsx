@@ -30,8 +30,6 @@ export const AddComment = ({ article_id, addCommentToList }) => {
       body: commentInput,
     };
 
-    console.log("Posting comment:", newComment);
-
     addComment(article_id, newComment)
       .then((response) => {
         const comment = response.comment;
@@ -41,10 +39,8 @@ export const AddComment = ({ article_id, addCommentToList }) => {
           return;
         }
 
-
         setSuccessMessage("Comment successfully posted!");
         setUploadMessage("");
-
 
         addCommentToList(comment);
       })
