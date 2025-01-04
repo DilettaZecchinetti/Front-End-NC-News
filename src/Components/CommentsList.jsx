@@ -4,6 +4,8 @@ import { Comment } from "./Comment";
 import { getCommentsById } from "../../api";
 import { AddComment } from "./AddComment";
 import { DeleteComment } from "./DeleteComment";
+import { CommentDeleteProvider } from "../Contexts/CommentDeleteContext";
+import '../css/Article.css'
 
 export const CommentsList = ({ article_id }) => {
     const { comments, setComments } = useContext(CommentsContext);
@@ -26,27 +28,20 @@ export const CommentsList = ({ article_id }) => {
         setComments((currentComments) => [newComment, ...currentComments]);
     };
 
-    // Function to remove a comment from the list
-    const removeCommentFromList = (comment_id) => {
-        setComments((currentComments) =>
-            currentComments.filter((comment) => comment.comment_id !== comment_id)
-        );
-    };
-
     return (
-        <div>
-            <AddComment article_id={article_id} addCommentToList={addCommentToList} />
-            {comments.map((comment) => {
-                return (
-                    <div key={comment.comment_id}>
-                        <Comment comment={comment} />
-                        <DeleteComment
-                            comment_id={comment.comment_id}
-                            removeCommentFromList={removeCommentFromList}
-                        />
-                    </div>
-                );
-            })}
-        </div>
+        <CommentDeleteProvider>
+            <div>
+                <AddComment article_id={article_id} addCommentToList={addCommentToList} />
+                {comments.map((comment) => {
+                    return (
+                        <div key={comment.comment_id}>
+                            <Comment comment={comment} />
+                            <DeleteComment comment={comment} comments={comments} setComments={setComments}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
+        </CommentDeleteProvider>
     );
 };

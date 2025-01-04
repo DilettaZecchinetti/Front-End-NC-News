@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { getArticles } from "../../api";
 import { ArticleCard } from "./ArticleCard";
+import { Spinner } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
-import "../css/ArticlesList.css"
+import "../css/ArticlesList.css";
 
 function ArticleList() {
     const [articles, setArticles] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     const [searchParams, setSearchParams] = useSearchParams();
 
-
     const sortBy = searchParams.get("sort_by") || "created_at";
     const order = searchParams.get("order") || "desc";
 
     useEffect(() => {
-        console.log("Fetching articles with", sortBy, order);
+
         setIsLoading(true);
         getArticles(sortBy, order)
             .then(({ articles }) => {
-                console.log("Fetched articles:", articles);
+
                 setArticles(articles);
                 setIsLoading(false);
             })
@@ -44,12 +44,9 @@ function ArticleList() {
         }));
     };
 
-    if (isLoading) {
-        return <p>Loading...</p>;
-    }
-
     return (
         <div>
+            <div className="articles-list-name">Articles</div>
             <div className="sorting-options">
                 <label id="sort_by">Sort by: </label>
                 <select id="sort_by" value={sortBy} onChange={handleSortByChange}>
@@ -63,11 +60,21 @@ function ArticleList() {
                     <option value="desc">Descending</option>
                 </select>
             </div>
-            <div className="article-container">
-                {articles.map((article) => (
-                    <ArticleCard key={article.article_id} article={article} />
-                ))}
-            </div>
+
+            {/* Conditionally render the spinner if articles are loading */}
+            {isLoading ? (
+                <div className="spinner-container">
+                    <Spinner animation="border" role="status">
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>
+                </div>
+            ) : (
+                <div className="article-container">
+                    {articles.map((article) => (
+                        <ArticleCard key={article.article_id} article={article} />
+                    ))}
+                </div>
+            )}
         </div>
     );
 }

@@ -1,0 +1,44 @@
+.comment-card {
+    background-color: #333; 
+    border-radius: 10px; 
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.3s ease; 
+    margin-top: 20px;
+}
+
+.comment-header {
+    background-color: #444;
+    color: #aaa; 
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.comment-header-info {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 0 15px; 
+}
+
+.comment-author {
+    font-size: 1.2rem; 
+    font-weight: 600; 
+    color: #fff; 
+}
+
+.comment-date {
+    font-size: 0.9rem; 
+    color: #aaa; 
+}
+
+.comment-body {
+    padding: 20px;
+    color: #d0d0d0; 
+}
+
+.comment-text {
+    font-size: 1.1rem; 
+    color: #e0e0e0; 
+    line-height: 1.6;
+}

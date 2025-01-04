@@ -1,5 +1,91 @@
 .article-card:hover {
-    transform: scale(1);
-    border: 1px solid white;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-   }
+        transform: translateY(-5px); 
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6); 
+    }
+
+   .article-card {
+    width: 100%; 
+    max-width: 1000px; 
+    margin: 20px auto; 
+    margin-top: 30px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+}
+
+.article-card-body {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; 
+}
+
+.article-card-image {
+    flex: 0 0 200px;
+    margin-right: 20px;
+}
+
+.article-card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.article-card-content {
+    flex: 1;
+}
+
+.article-title {
+    font-size: 1.5em;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.article-topic {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 0;
+}
+
+.article-comment-count {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9em;
+    color: #bbb;
+    margin: 0;
+}
+
+.read-more-btn {
+    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .article-card-body {
+        flex-direction: column; 
+        text-align: center; 
+    }
+
+    .article-card-image {
+        flex: 0 0 100%;
+        margin-right: 0;
+        margin-bottom: 10px; 
+    }
+
+    .article-title {
+        font-size: 1.3em; 
+    }
+}
+
+@media (max-width: 480px) {
+    .article-title {
+        font-size: 1.2em; 
+    }
+
+    .article-meta {
+        font-size: 0.8em; 
+    }
+
+    .read-more-btn {
+        width: 100%; 
+    }
+}
