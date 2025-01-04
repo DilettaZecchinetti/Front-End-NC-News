@@ -1,51 +1,63 @@
 .sorting-options {
-    display: flex;
-    justify-content: center; 
-    align-items: center;   
-    gap: 15px;               
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 14px;
-    margin: 30px auto; 
-    margin-bottom: 5px;
-    
+  display: flex;
+  justify-content: center; 
+  align-items: center;   
+  gap: 15px;               
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  margin: 30px auto; 
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .sorting-options {
+      flex-direction: column;
+      gap: 10px; 
   }
 
-  select {
-    padding: 8px 16px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 14px;
-    background-color: #f8f9fa;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+  .articles-list-name {
+      font-size: 1.5rem;  
+      margin-top: 30px;
+      margin-bottom: 15px;
   }
-  
-  select:hover,
-  select:focus {
-    border-color: #007bff;
-    outline: none;
-    background-color: #fff;
-    box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
-  }
-  
-  label {
-    margin-right: 8px;  
-    font-weight: bold;
-  }
-  
-  #sort_by,
-  #sort_order {
-    margin-right: 12px;
-  }
-  
+}
+
+select {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+select:hover,
+select:focus {
+  border-color: #007bff;
+  outline: none;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 123, 255, 0.2);
+}
+
+label {
+  margin-right: 8px;  
+  font-weight: bold;
+}
+
+#sort_by,
+#sort_order {
+  margin-right: 12px;
+}
+
 .articles-list-name {
   font-size: 2rem; 
-    font-weight: 500;
-    color: #ffffff; 
-    margin-top: 50px;
-    margin-bottom: 20px;
-    text-align: center;
+  font-weight: 500;
+  color: #ffffff; 
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .spinner-container {
@@ -53,4 +65,29 @@
   justify-content: center;
   align-items: center;
   height: 100vh; 
+}
+
+@media (max-width: 480px) {
+  .articles-list-name {
+      font-size: 1.2rem;  
+      margin-top: 20px;
+      margin-bottom: 10px;
+  }
+
+  select {
+      width: 100%;  
+      padding: 12px;
+  }
+
+  .sorting-options {
+      width: 100%;
+      flex-direction: column;
+      gap: 8px;
+  }
+
+  #sort_by,
+  #sort_order {
+      margin-right: 0;
+      margin-bottom: 8px;  
+  }
 }
