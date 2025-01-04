@@ -70,7 +70,7 @@ label {
 @media (max-width: 480px) {
   .articles-list-name {
       font-size: 1.2rem;  
-      margin-top: 20px;
+      margin-top: 40px;
       margin-bottom: 10px;
   }
 
