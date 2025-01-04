@@ -1,0 +1,25 @@
+.delete-comment-container button {
+    background-color: #444; 
+    color: #fff;
+    padding: 8px 16px;  
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-bottom: 20px;
+    
+}
+
+.delete-comment-container button:hover {
+    background-color: #b71c1c; 
+    transform: scale(1.05); 
+}
+
+.delete-comment-container button:focus {
+    outline: none;
+}
+
+.delete-comment-container {
+    margin-top: 0px;
+}

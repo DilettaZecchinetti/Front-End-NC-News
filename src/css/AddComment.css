@@ -1,0 +1,31 @@
+.input-group {
+    display: flex;
+    width: 100%;  
+    max-width: 700px;  
+    margin: 20px auto; 
+}
+
+#comment-input {
+    font-size: 1.1rem; 
+    padding: 10px;  
+    border: 1px solid #ccc;  
+    border-radius: 8px 0 0 8px;  
+    width: calc(100% - 110px); 
+}
+
+#button-addon2 {
+    font-size: 1.1rem; 
+    padding: 10px 20px;  
+    background-color: #4caf50; 
+    border: none;
+    border-radius: 0 8px 8px 0;  
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100px; 
+    margin: 0;
+}
+
+#button-addon2:hover {
+    background-color: #388e3c; 
+}

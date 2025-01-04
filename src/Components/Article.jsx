@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { CommentsList } from "./CommentsList";
 import { CommentsProvider } from "../Contexts/CommentsContext";
 import { Votes } from "./Votes";
+import Button from 'react-bootstrap/Button';
+import "../css/Article.css"
+
 
 function Article() {
   const [article, setArticle] = useState([]);
@@ -28,15 +31,15 @@ function Article() {
 
 
   return (
-    <div>
+    <div className="single-article-container">
       <h1>{article.title}</h1>
-      <p>Author: {article.author}</p>
+      <p>By {article.author} on {new Date(article.created_at).toLocaleDateString()} </p>
       <img src={article.article_img_url} alt={article.title} />
       <p>{article.body}</p>
 
       <Votes article_id={article_id} initialVotes={article.votes} setArticle={setArticle} />
       <Link to="/">
-        <button className="">Back to Articles</button>
+        <Button variant="dark">Back to Articles</Button>
       </Link>
       <CommentsProvider>
         <CommentsList article_id={article.article_id} />

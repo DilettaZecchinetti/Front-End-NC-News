@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useState } from "react";
 import { addComment } from "../../api";
+import "../css/AddComment.css"
 
 export const AddComment = ({ article_id, addCommentToList }) => {
   const [commentInput, setCommentInput] = useState("");
@@ -70,8 +71,8 @@ export const AddComment = ({ article_id, addCommentToList }) => {
           Post
         </Button>
       </InputGroup>
-      {successMessage && <p>{successMessage}</p>} {/* Display success message */}
-      {uploadMessage && <p>{uploadMessage}</p>} {/* Conditionally render upload message */}
+      {successMessage && <p>{successMessage}</p>}
+      {uploadMessage && <p>{uploadMessage}</p>}
     </>
   );
 };

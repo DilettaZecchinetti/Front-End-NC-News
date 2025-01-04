@@ -51,3 +51,21 @@ export const getTopics = () => {
     return data;
   });
 };
+
+export const getArticlesByTopic = (
+  topic,
+  sortBy = "created_at",
+  order = "desc"
+) => {
+  return api
+    .get(`articles?topic=${topic}`, { params: { sort_by: sortBy, order } })
+    .then(({ data }) => {
+      return data;
+    });
+};
+
+export const getUsers = () => {
+  return api.get(`/users`).then(({ data }) => {
+    return data;
+  });
+};

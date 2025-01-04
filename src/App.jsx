@@ -6,8 +6,10 @@ import Header from './Components/Header'
 import ArticlesList from './Components/ArticlesList';
 import { CommentsContext } from "./Contexts/CommentsContext";
 import '../src/css/App.css'
-import TopicsList from './Components/TopicsList';
 import Article from './Components/Article';
+import { ArticlesByTopic } from './Components/ArticlesByTopic';
+import Users from './Components/Users';
+import { UsersProvider } from './Contexts/UsersContext';
 
 
 function App() {
@@ -15,19 +17,24 @@ function App() {
   return (
 
     <div>
+      <UsersProvider>
+        <Header />
 
-      <Header />
+      </UsersProvider>
 
       <CommentsContext.Provider value={{ comments, setComments }}>
+
         <Routes>
           <Route path="/" element={<ArticlesList />} />
           <Route path="/home" element={<ArticlesList />} />
           <Route path="/articles/:article_id" element={<Article />} />
-          <Route path="/topics" element={<TopicsList />} />
+          <Route path="/topics/:topic" element={<ArticlesByTopic />} />
+          <Route path="/users" element={<Users />} />
         </Routes>
+
       </CommentsContext.Provider>
 
-    </div>
+    </div >
 
   );
 }

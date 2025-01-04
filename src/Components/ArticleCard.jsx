@@ -2,38 +2,31 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
-import "../css/ArticleCard.css"
+import "../css/ArticleCard.css";
 
 export const ArticleCard = ({ article }) => {
     return (
-        <Card bg="dark" text="white" style={{ width: "80%", margin: "0 auto" }} className="article-card">
-            <Card.Body style={{ display: "flex", alignItems: "center" }}>
-                <div style={{ flex: "0 0 200px", marginRight: "20px" }}>
+        <Card bg="dark" text="white" className="article-card">
+            <Card.Body className="article-card-body">
+                <div className="article-card-image">
                     <Card.Img
                         variant="top"
                         src={article.article_img_url}
                         alt={`Image for ${article.title}`}
-                        style={{
-                            width: "100%",
-                            height: "auto",
-                            objectFit: "cover",
-                        }}
                     />
                 </div>
-                <div style={{ flex: "1" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <Card.Text style={{ fontSize: "0.9em", color: "#bbb" }}>
-                            <strong>Author:</strong> {article.author}
-                        </Card.Text>
-                        <Card.Title style={{ flex: "1" }}>{article.title}</Card.Title>
+                <div className="article-card-content">
+                    <Card.Title className="article-title">{article.title}</Card.Title>
 
-                    </div>
-
-                    <Card.Text style={{ fontSize: "0.9em", color: "#bbb" }}>
-                        Created on: {new Date(article.created_at).toLocaleDateString()}
+                    <Card.Text className="article-meta">
+                        <span>By {article.author} on {new Date(article.created_at).toLocaleDateString()}</span>
+                    </Card.Text>
+                    <Card.Text className="article-topic">Topic: {article.topic}</Card.Text>
+                    <Card.Text className="article-comment-count">
+                        Comments: {article.comment_count}
                     </Card.Text>
                     <Link to={`/articles/${article.article_id}`}>
-                        <Button variant="dark">Read More</Button>
+                        <Button variant="primary" className="read-more-btn">Read More</Button>
                     </Link>
                 </div>
             </Card.Body>
