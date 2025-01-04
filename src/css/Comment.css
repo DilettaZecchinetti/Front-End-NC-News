@@ -46,8 +46,8 @@
     }
 
     .comment-author-img {
-        width: 1.25rem; 
-        height: 1.25rem;
+        max-width: 1.25rem; 
+        max-height: 1.25rem;
         margin-right: 0.25rem; 
     }
 }
@@ -63,8 +63,8 @@
     }
 
     .comment-author-img {
-        width: 1rem; 
-        height: 1rem; 
+        max-width: 1rem; 
+        max-height: 1rem; 
         margin-right: 0.25rem;  
     }
 }
