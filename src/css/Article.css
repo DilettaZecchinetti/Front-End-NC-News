@@ -2,14 +2,14 @@
     max-width: 1000px;
     margin: 50px auto;
     padding: 25px;
-    background-color: #1e1e1e; 
+    background-color: #212529;
     border-radius: 12px; 
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6); 
     color: #d0d0d0;
 }
 
 .single-article-container h1 {
-    font-size: 3rem; 
+    font-size: 2rem; 
     font-weight: 700;
     color: #ffffff; 
     margin-bottom: 20px;
@@ -17,7 +17,7 @@
 }
 
 .single-article-container p {
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #aaa;
     margin-bottom: 15px;
     text-align: center;

@@ -1,8 +1,7 @@
-
 import React, { createContext, useState, useEffect } from 'react';
 import { getUsers } from '../../api';
 
-const UsersContext = createContext();
+export const UsersContext = createContext();
 
 export const UsersProvider = ({ children }) => {
     const [users, setUsers] = useState([]);

@@ -1,44 +1,72 @@
 .comment-card {
-    background-color: #333; 
-    border-radius: 10px; 
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease, box-shadow 0.3s ease; 
-    margin-top: 20px;
+    margin-top: 30px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6); 
 }
 
 .comment-header {
-    background-color: #444;
-    color: #aaa; 
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;  
+    font-size: 0.85rem;  
+    background-color: #343a3f;
 }
 
 .comment-header-info {
     display: flex;
-    justify-content: space-between; 
     align-items: center;
-    margin: 0 15px; 
 }
 
-.comment-author {
-    font-size: 1.2rem; 
-    font-weight: 600; 
-    color: #fff; 
+.comment-author-container {
+    display: flex;
+    align-items: center;
+    height: 30px;
 }
 
-.comment-date {
-    font-size: 0.9rem; 
-    color: #aaa; 
+.comment-author-img {
+
+      
+    max-width: 100%;   
+    max-height: 100%;  
+    border-radius: 50%;
+    margin-right: 6px;
+    object-fit: cover; 
+    
+    margin-top: 25px;
 }
 
-.comment-body {
-    padding: 20px;
-    color: #d0d0d0; 
+
+@media (max-width: 768px) {
+    .comment-header {
+        font-size: 0.8rem;  /* Smaller font size for smaller screens */
+        padding: 6px 10px;  /* Reduced padding for smaller screens */
+    }
+
+    .comment-author-container {
+        height: 24px;  /* Reduce the height of the container */
+    }
+
+    .comment-author-img {
+        height: 10px;  /* Smaller avatar size on smaller screens */
+        margin-right: 4px;  /* Adjusted spacing for smaller avatar */
+    }
 }
 
-.comment-text {
-    font-size: 1.1rem; 
-    color: #e0e0e0; 
-    line-height: 1.6;
+@media (max-width: 480px) {
+    .comment-header {
+        font-size: 0.75rem;  /* Even smaller font size on very small screens */
+        padding: 4px 8px;    /* Smaller padding for very small screens */
+    }
+
+    .comment-author-container {
+        height: 20px;  /* Further reduce height of the container */
+    }
+
+    .comment-author-img {
+        height: 8px;   /* Even smaller avatar size */
+        margin-right: 4px;  /* Keep spacing consistent */
+    }
 }
+
+
+

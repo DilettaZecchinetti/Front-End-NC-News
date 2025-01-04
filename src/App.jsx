@@ -20,20 +20,20 @@ function App() {
       <UsersProvider>
         <Header />
 
+
+
+        <CommentsContext.Provider value={{ comments, setComments }}>
+
+          <Routes>
+            <Route path="/" element={<ArticlesList />} />
+            <Route path="/home" element={<ArticlesList />} />
+            <Route path="/articles/:article_id" element={<Article />} />
+            <Route path="/topics/:topic" element={<ArticlesByTopic />} />
+            <Route path="/users" element={<Users />} />
+          </Routes>
+
+        </CommentsContext.Provider>
       </UsersProvider>
-
-      <CommentsContext.Provider value={{ comments, setComments }}>
-
-        <Routes>
-          <Route path="/" element={<ArticlesList />} />
-          <Route path="/home" element={<ArticlesList />} />
-          <Route path="/articles/:article_id" element={<Article />} />
-          <Route path="/topics/:topic" element={<ArticlesByTopic />} />
-          <Route path="/users" element={<Users />} />
-        </Routes>
-
-      </CommentsContext.Provider>
-
     </div >
 
   );
