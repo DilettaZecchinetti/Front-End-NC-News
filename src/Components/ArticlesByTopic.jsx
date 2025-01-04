@@ -100,7 +100,7 @@ export const ArticlesByTopic = () => {
                 </select>
             </div>
 
-            <div className="row">
+            <div className="article-container">
                 {articles.length > 0 ? (
                     articles.map((article) => (
                         <ArticleCard key={article.article_id} article={article} />
