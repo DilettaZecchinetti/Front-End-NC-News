@@ -69,4 +69,6 @@
     }
 }
 
-
+.comment-author-link {
+    text-decoration: none;
+}
