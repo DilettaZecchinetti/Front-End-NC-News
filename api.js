@@ -69,3 +69,9 @@ export const getUsers = () => {
     return data;
   });
 };
+
+export const getUserByUsername = (username) => {
+  return api.get(`/users/${username}`).then(({ data }) => {
+    return data;
+  });
+};
